@@ -9,6 +9,10 @@ defmodule TodolistGraphQLWeb.Router do
     pipe_through :api
   end
 
+  scope "/" do
+    forward "/GraphiQL", Absinthe.Plug.GraphiQL, schema: TodolistGraphQL.Graphql.Schema
+  end
+
   # Enables LiveDashboard only for development
   #
   # If you want to use the LiveDashboard in production, you should put
